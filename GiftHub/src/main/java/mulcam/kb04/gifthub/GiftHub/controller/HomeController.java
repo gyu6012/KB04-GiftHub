@@ -6,8 +6,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class HomeController {	
-​	@GetMapping("/")
+public class HomeController {
+
+	@GetMapping("/")
 	public String home(HttpSession session) {
 		if (session.getAttribute("loggedMemberId") == null && session.getAttribute("loggedStoreId") == null) {
 			return "index";
@@ -17,7 +18,8 @@ public class HomeController {
 			return "member/main";
 		}
 	}
-​	@GetMapping("/index")
+
+	@GetMapping("/index")
 	public String index(HttpSession session) {
 		if (session.getAttribute("loggedMemberId") == null && session.getAttribute("loggedStoreId") == null) {
 			return "index";
@@ -27,25 +29,26 @@ public class HomeController {
 			return "member/main";
 		}
 	}
+
 	@GetMapping("/store/home")
 	public String store_home() {
-​
+
 		return "store/home";
 	}
-​
+
 	@GetMapping("/manual")
 	public String manual() {
 		return "manual";
 	}
-​
+
 	@GetMapping("/team")
 	public String team() {
 		return "team";
 	}
-​
+
 	@GetMapping("/service")
 	public String service() {
 		return "service";
 	}
-​
+
 }
